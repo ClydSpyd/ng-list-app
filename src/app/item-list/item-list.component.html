@@ -1,0 +1,5 @@
+<div class="inputBox">
+  <form [formGroup]="addItemInput" (ngSubmit)="onSubmit(addItemInput.value)">
+      <input id="inputText" type="text" formControlName="inputText" placeholder="new item...">
+  </form>
+</div>
