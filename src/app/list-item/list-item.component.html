@@ -1,23 +1,24 @@
 <div class="listItem" [ngClass]="{'queryState':queryState}" >
 
-  <div class="queryDiv" [hidden]="!queryState">
-    <div class="queryDivInner">
-      <div>
-        remove item?
+    <div class="queryDiv" [hidden]="!queryState">
+      <div class="queryDivInner">
+        <div style="color: #f8000091">
+          remove item?
+        </div>
+        <div style="margin:0 10px">
+          <a (click)="onRemove(item)">yes</a>
+          <a (click)="onMouse()">no</a></div>
       </div>
-      <div style="margin:0 10px">
-        <a (click)="onRemove(item)">yes</a>
-        <a (click)="onMouse()">no</a></div>
     </div>
-  </div>
-
-  <div class="listItemInner">
-    <div class="itemText">
-      <p [class.itemTextQueryState]="queryState">{{ item.text }}</p>
-    </div>
-    <div class="itemSymbols" (click)="onMouse()">
-      <h1 [class.test]="queryState">X</h1>
-    </div>
-  </div>
   
-</div>
+    <div class="listItemInner">
+      <div class="itemText">
+        <!-- <p [ngClass]="{itemTextQueryState: queryState}">{{ item.text }}</p> -->
+        <p>{{ item.text }}</p>
+      </div>
+      <div class="itemSymbols" (click)="onMouse()">
+        <h1 [class.test]="queryState">X</h1>
+      </div>
+    </div>
+    
+  </div>

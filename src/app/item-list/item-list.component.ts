@@ -31,7 +31,7 @@ export class ItemListComponent implements OnInit {
       {
       const item = {
         text: data.inputText,
-        created: new Date(),
+        created: new Date().getTime(),
         complete: false,
         id: new Date().getTime()
       }

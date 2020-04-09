@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { DaysAgoPipe } from './days-ago.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     ItemListComponent,
-    ListItemComponent
+    ListItemComponent,
+    DaysAgoPipe
   ],
   imports: [
     BrowserModule,
