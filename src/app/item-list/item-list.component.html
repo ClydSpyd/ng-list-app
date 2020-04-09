@@ -1,17 +1,17 @@
 <div class="inputBox">
   <form autocomplete="off" [formGroup]="addItemInput" (ngSubmit)="onSubmit(addItemInput.value)">
-      <input id="inputText" type="text" formControlName="inputText" placeholder="new item...">
+      <input id="inputText" type="text" formControlName="inputText" placeholder="new item..." autofocus>
   </form>
 </div>
 <div class="listSection">
   <!-- to do: -->
   <div class="listInner">
-    <div (click)="onRemove(item.id)" *ngFor="let item of items">
+    <div  *ngFor="let item of items">
       <div class="listItem">
         <div class="itemText">
           <p>{{ item.text }}</p>
         </div>
-        <div class="itemSymbols">
+        <div class="itemSymbols" (click)="onRemove(item.id)">
           <h1>X</h1>
         </div>
 
