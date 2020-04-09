@@ -1,5 +1,22 @@
 <div class="inputBox">
-  <form [formGroup]="addItemInput" (ngSubmit)="onSubmit(addItemInput.value)">
+  <form autocomplete="off" [formGroup]="addItemInput" (ngSubmit)="onSubmit(addItemInput.value)">
       <input id="inputText" type="text" formControlName="inputText" placeholder="new item...">
   </form>
+</div>
+<div class="listSection">
+  <!-- to do: -->
+  <div class="listInner">
+    <div (click)="onRemove(item.id)" *ngFor="let item of items">
+      <div class="listItem">
+        <div class="itemText">
+          <p>{{ item.text }}</p>
+        </div>
+        <div class="itemSymbols">
+          <h1>X</h1>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
 </div>
