@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemListComponent } from './item-list/item-list.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    ItemListComponent
+    ItemListComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,

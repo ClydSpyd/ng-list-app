@@ -7,15 +7,7 @@
   <!-- to do: -->
   <div class="listInner">
     <div  *ngFor="let item of items">
-      <div class="listItem">
-        <div class="itemText">
-          <p>{{ item.text }}</p>
-        </div>
-        <div class="itemSymbols" (click)="onRemove(item.id)">
-          <h1>X</h1>
-        </div>
-
-      </div>
+      <app-list-item [item]="item"></app-list-item>
       
     </div>
   </div>
