@@ -6,17 +6,20 @@
           remove item?
         </div>
         <div style="margin:0 10px">
-          <a (click)="onRemove(item)">yes</a>
-          <a (click)="onMouse()">no</a></div>
+          <a (click)="onRemove(item.id)">yes</a>
+          <a (click)="onQuery()">no</a></div>
       </div>
     </div>
   
-    <div class="listItemInner">
-      <div class="itemText">
+    <div class="listItemInner" >
+      <div (click)="showDetails.emit({bool:true, id:item.id})" class="itemText">
         <!-- <p [ngClass]="{itemTextQueryState: queryState}">{{ item.text }}</p> -->
-        <p>{{ item.text }}</p>
+        <p >{{ item.text }}</p>
       </div>
-      <div class="itemSymbols" (click)="onMouse()">
+      <div (click)="showDetails.emit({bool:true, id:item.id})" [hidden]="queryState" class="itemCreated">
+        <p> {{ item.created | daysAgo | createdText}}</p>
+      </div>
+      <div class="itemSymbols" (click)="onQuery()">
         <h1 [class.test]="queryState">X</h1>
       </div>
     </div>

@@ -8,6 +8,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { DaysAgoPipe } from './days-ago.pipe';
+import { CreatedTextPipe } from './created-text.pipe';
+import { ItemDetailsComponent } from './item-details/item-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { DaysAgoPipe } from './days-ago.pipe';
     TopBarComponent,
     ItemListComponent,
     ListItemComponent,
-    DaysAgoPipe
+    DaysAgoPipe,
+    CreatedTextPipe,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,

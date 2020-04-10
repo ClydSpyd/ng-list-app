@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
-import { StoreService } from '../../store.service';
+import { StoreService } from '../store.service';
+import { EventEmitter } from'@angular/core';
 
 @Component({
   selector: 'app-list-item',
@@ -11,6 +12,7 @@ export class ListItemComponent implements OnInit {
   queryState=false;
 
   @Input() item;
+  @Output() showDetails = new EventEmitter();
 
   constructor(
     private storeService: StoreService,
@@ -19,13 +21,15 @@ export class ListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
   onRemove(id) {
       this.storeService.removeItem(id);
-      this.onMouse();
+      this.onQuery();
   }
-
-  onMouse(){
+  onQuery(){
     this.queryState=!this.queryState
   }
+  onShow(id){
+    this.showDetails.emit({bool: true, id:id})
+  }
+
 }

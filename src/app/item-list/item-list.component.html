@@ -1,16 +1,32 @@
-<div *ngIf="items.length else ">
+<div >
   <div class="inputBox">
     <form autocomplete="off" [formGroup]="addItemInput" (ngSubmit)="onSubmit(addItemInput.value)">
         <input id="inputText" type="text" formControlName="inputText" placeholder="new item..." autofocus>
     </form>
   </div>
-  <div class="listSection">
-    <!-- to do: -->
-    <div class="listInner">
+  <div class="sortBy">
+    sort by <a (click)="onSort('created')">date</a> | <a (click)="onSort('text')" >name</a>
+  </div>
+  <div class="listSection" [class.noScroll]="showDetails">
+
+    <div class="itemDetailsWrapper" [class.detailsHidden]="!showDetails">
+      <p syle="cursor:pointer; width:100px; height:50px;" (click)="onShowDetails({bool:false, id:'hai'})">
+        words
+      </p>
+    </div>
+    
+    <div *ngIf="items.length else placeholder" class="listInner">
       <div  *ngFor="let item of items">
-        <app-list-item [item]="item"></app-list-item>
+        <app-list-item (showDetails)="onShowDetails($event)" [item]="item"></app-list-item>
         
       </div>
     </div>
+
   </div>
 </div>
+    
+<ng-template #placeholder >
+  <div class="listEmpty">
+    list empty
+  </div>
+</ng-template >

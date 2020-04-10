@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
-import { StoreService } from '../../store.service';
+import { StoreService } from '../store.service';
 import { ListItemComponent } from '../list-item/list-item.component'
+import { SorterService } from '../sorter.service';
 
 @Component({
   selector: 'app-item-list',
@@ -12,10 +13,13 @@ import { ListItemComponent } from '../list-item/list-item.component'
 export class ItemListComponent implements OnInit {
   addItemInput;
   items;
+  showDetails;
+  idPass;
 
   constructor(
     private formBuilder: FormBuilder,
     private storeService: StoreService,
+    private sorterService: SorterService,
   ) {
     this.addItemInput = this.formBuilder.group({
       inputText: '',
@@ -24,9 +28,11 @@ export class ItemListComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.storeService.getItems();
+    this.showDetails=false;
   }
 
   onSubmit(data) {
+    
     if(data.inputText)
       {
       const item = {
@@ -39,7 +45,6 @@ export class ItemListComponent implements OnInit {
       this.addItemInput.reset();
     }
   }
-
   onRemove(id) {
     var r = confirm("remove item from list?");
     if (r == true) {
@@ -48,5 +53,11 @@ export class ItemListComponent implements OnInit {
       return
     }
   }
-
+  onSort(prop){
+    this.sorterService.sortItems(this.items, prop)
+  }
+  onShowDetails(data){
+    console.log(data.id)
+    this.showDetails=data.bool;
+  }
 }
