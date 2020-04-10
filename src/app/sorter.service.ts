@@ -31,5 +31,18 @@ export class SorterService {
       }
     })
   }
+  sortBy(arr, prop) {
+    this.property = prop;
+    this.direction = (this.property === prop) ? this.direction * -1 : 1;
+    let order= this.direction;
+    // return arr.sort((a, b) => a[prop] - b[prop]);
+    function compareProps(a, b) {
+      if (a[prop] < b[prop]) { return order * -1; }
+      else if (a[prop] > b[prop]) { return order * 1; }
+      return 0;
+    }
+    
+    arr.sort(compareProps);
+  }
 }
 

@@ -14,12 +14,20 @@ export class StoreService {
   getItems() {
     return this.items;
   }
+
+  getItem(id) {
+    return this.items.find(item => item.id == id )
+  }
   removeItem(id){
     const index = this.items.findIndex(x => x.id == id);
     this.items.splice(index, 1);
     localStorage.setItem('listAppItems', JSON.stringify(this.items));
     return this.items;
   }
-
+  removeAll(){
+    this.items.splice(0)
+    localStorage.setItem('listAppItems', JSON.stringify(this.items));
+    return this.items;    
+  }
   constructor() { }
 }

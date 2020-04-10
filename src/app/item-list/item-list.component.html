@@ -1,32 +1,43 @@
-<div >
+<div>
+  <!-- INPUT -->
   <div class="inputBox">
     <form autocomplete="off" [formGroup]="addItemInput" (ngSubmit)="onSubmit(addItemInput.value)">
-        <input id="inputText" type="text" formControlName="inputText" placeholder="new item..." autofocus>
+      <input id="inputText" type="text" formControlName="inputText" placeholder="new item..." autofocus>
     </form>
   </div>
+  <!-- SORT BUTTONS -->
   <div class="sortBy">
-    sort by <a (click)="onSort('created')">date</a> | <a (click)="onSort('text')" >name</a>
+    <div class="sortByInner" [hidden]="showDetails">
+      sort by <a (click)="onSort('created')">date</a> | <a (click)="onSort('text')">name</a>
+    </div>    
+    <div class="clearItems">
+      <a (click)="onClear()">remove all items</a>
+    </div>
   </div>
+  <!-- LIST SECTION -->
   <div class="listSection" [class.noScroll]="showDetails">
 
+    <!-- DETAILS POPUP -->
     <div class="itemDetailsWrapper" [class.detailsHidden]="!showDetails">
-      <p (click)="onShowDetails({bool:false, id:'hai'})">
-        words
+      <p (click)="onShowDetails({bool:false, id:this.itemPass.id})">
+        close
       </p>
-    </div>
-    
-    <div *ngIf="items.length else placeholder" class="listInner">
-      <div  *ngFor="let item of items">
-        <app-list-item (showDetails)="onShowDetails($event)" [item]="item"></app-list-item>
-        
-      </div>
+      <app-item-details [item]="itemPass"></app-item-details>
     </div>
 
+    <!-- ITEMS -->
+    <div *ngIf="items.length else placeholder" class="listInner">
+      <div *ngFor="let item of items">
+        <app-list-item (showDetails)="onShowDetails($event)" [item]="item"></app-list-item>
+      </div>
+    </div>
   </div>
+
+  
 </div>
-    
-<ng-template #placeholder >
+<!-- PLACEHOLDER   -->
+<ng-template #placeholder>
   <div class="listEmpty">
     list empty
   </div>
-</ng-template >
+</ng-template>

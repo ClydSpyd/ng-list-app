@@ -13,7 +13,6 @@
   
     <div class="listItemInner" >
       <div (click)="showDetails.emit({bool:true, id:item.id})" class="itemText">
-        <!-- <p [ngClass]="{itemTextQueryState: queryState}">{{ item.text }}</p> -->
         <p >{{ item.text }}</p>
       </div>
       <div (click)="showDetails.emit({bool:true, id:item.id})" [hidden]="queryState" class="itemCreated">
