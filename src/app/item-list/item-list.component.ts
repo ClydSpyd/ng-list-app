@@ -28,7 +28,7 @@ export class ItemListComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.storeService.getItems();
-    this.showDetails=false;
+    this.showDetails=true;
   }
 
   onSubmit(data) {

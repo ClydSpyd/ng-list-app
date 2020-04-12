@@ -181,6 +181,10 @@ app-item-list input[type=text]::placeholder {
 .itemCreated{
   cursor: pointer;
 }
+.itemCreatedText{
+  font-size:12px;
+  color: rgb(155, 215, 255);
+}
 .listItem h1{
   font-family: verdana;
   color: rgba(189, 189, 189, 0.76);
@@ -255,10 +259,11 @@ app-item-list input[type=text]::placeholder {
   width:100%;
   overflow: hidden;
   transition: all 400ms;
+  border:1px solid rgb(193, 230, 255)
 }
 
 .detailsHidden{
-  margin:50%;
-  height:1vh;
-  width:1px;
+  margin:400px 50%;
+  height:0vh;
+  width:5%;
 }

@@ -10,10 +10,7 @@ export class DaysAgoPipe implements PipeTransform {
     const then = new Date(new Date(value).getFullYear(), new Date(value).getMonth(),new Date(value).getDate()).getTime();
     const now = new Date(new Date().getFullYear(), new Date().getMonth(),new Date().getDate()).getTime();
 
-    //obtain difference between dates
-    const diff = Math.floor((now - then) / (1000 * 60 * 60 * 24));
-
-    return diff !== 0 ?  diff : 'today';
+    return Math.floor((now - then) / (1000 * 60 * 60 * 24));
   }
 }
 

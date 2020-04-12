@@ -17,7 +17,7 @@
         <p >{{ item.text }}</p>
       </div>
       <div (click)="showDetails.emit({bool:true, id:item.id})" [hidden]="queryState" class="itemCreated">
-        <p> {{ item.created | daysAgo | createdText}}</p>
+        <p class="itemCreatedText"> {{ item.created | daysAgo | createdText}}</p>
       </div>
       <div class="itemSymbols" (click)="onQuery()">
         <h1 [class.test]="queryState">X</h1>
