@@ -35,7 +35,7 @@ export class ItemListComponent implements OnInit {
     if (data.inputText) {
       const item = {
         text: data.inputText,
-        created: new Date(2020, 3, 7).getTime(),
+        created: new Date().getTime(),
         complete: false,
         id: new Date().getTime()
       }
@@ -52,8 +52,10 @@ export class ItemListComponent implements OnInit {
   }
 
   onClear() {
-    this.storeService.removeAll();
-    confirm('clear list?') ? this.storeService.removeAll() : console.log('nada');
+    var r = confirm("remove all items?");
+    if (r == true) {
+      this.storeService.removeAll()
+    } else { return }
   }
 
   onSort(prop) {
@@ -64,5 +66,9 @@ export class ItemListComponent implements OnInit {
     this.itemPass = this.storeService.getItem(data.id);
     console.log(this.itemPass);
     this.showDetails = data.bool;
+  }
+  test(){
+    const res = this.showDetails ? 'hemlo' : 'hai';
+    return res;
   }
 }

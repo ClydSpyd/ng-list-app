@@ -7,10 +7,10 @@
   </div>
   <!-- SORT BUTTONS -->
   <div class="sortBy">
-    <div class="sortByInner" [hidden]="showDetails">
+    <div class="sortByInner"  [hidden]="showDetails">
       sort by <a (click)="onSort('created')">date</a> | <a (click)="onSort('text')">name</a>
     </div>    
-    <div class="clearItems">
+    <div class="clearItems" [hidden]="showDetails">
       <a (click)="onClear()">remove all items</a>
     </div>
   </div>
@@ -19,7 +19,7 @@
 
     <!-- DETAILS POPUP -->
     <div class="itemDetailsWrapper" [class.detailsHidden]="!showDetails">
-      <p (click)="onShowDetails({bool:false, id:this.itemPass.id})">
+      <p class="detailsClose" (click)="onShowDetails({bool:false, id:this.itemPass.id})">
         close
       </p>
       <app-item-details [item]="itemPass"></app-item-details>
@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-
+  {{ test() }}
   
 </div>
 <!-- PLACEHOLDER   -->

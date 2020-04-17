@@ -7,7 +7,7 @@ export class StoreService {
   items = localStorage.listAppItems ? JSON.parse(localStorage.listAppItems) : [];
 
   addItem(item){
-    this.items.push(item);
+    this.items.unshift(item);
     localStorage.setItem('listAppItems', JSON.stringify(this.items));
     return this.items;
   }

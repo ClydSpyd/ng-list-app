@@ -10,7 +10,7 @@ import { EventEmitter } from'@angular/core';
 })
 export class ListItemComponent implements OnInit {
   queryState=false;
-
+  complete = false;
   @Input() item;
   @Output() showDetails = new EventEmitter();
 
@@ -31,5 +31,11 @@ export class ListItemComponent implements OnInit {
   onShow(id){
     this.showDetails.emit({bool: true, id:id})
   }
-
+  onComplete(){
+    this.complete = !this.complete;
+  }
+  compTxt(){
+    const res = this.complete ? 'mark as incomplete' : 'mark as complete';
+    return res;
+  }
 }

@@ -10,6 +10,7 @@
 
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 .container {
@@ -19,6 +20,9 @@ body {
 
 router-outlet + *  {
   padding: 0 16px;
+}
+.pointer{
+  cursor: pointer;
 }
 
 /* Text */
@@ -37,6 +41,13 @@ h1, h2 {
 
 p {
   font-size: 14px;
+}
+
+.strike{
+  text-decoration: line-through;
+}
+.opac{
+  opacity: 0;
 }
 
 /* Hyperlink */
@@ -105,6 +116,7 @@ app-top-bar {
 
 .listSection::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
 }
 
 .listSection::-webkit-scrollbar-thumb {
@@ -145,6 +157,12 @@ app-item-list input[type=text]::placeholder {
 .sortByInner a,
 .clearItems a{
   color:rgb(193, 230, 255);
+  transition: all 400ms;
+}
+.sortByInner a:hover,
+.clearItems a:hover{
+  text-decoration: underline;
+  color:#1976d2;
 }
 .listSection{
   background-color: aliceblue;
@@ -159,6 +177,7 @@ app-item-list input[type=text]::placeholder {
   width:100%;
   margin:0 auto;
   padding: 4px 8px;
+  height:100%;
 }
 .listEmpty{
   width:100;
@@ -202,8 +221,21 @@ app-item-list input[type=text]::placeholder {
   transition: all 500ms;
 }
 .itemSymbols{
+  align-items: center;
+  display: flex;
   cursor: pointer;
-  width:20px;
+  width: 121px;
+  justify-content: space-between;
+}
+.itemSymbols p{
+  width: 70%;
+  font-size: 8px;
+  transition: all 400ms;
+  transform-origin: center;
+  text-align: center;
+}
+.itemSymbols p:hover{
+  font-size: 8.5px;
 }
 .itemSymbols h1{
   color: rgb(193, 230, 255);
@@ -261,19 +293,29 @@ app-item-list input[type=text]::placeholder {
   color: chartreuse ;
 } */
 .itemDetailsWrapper{
+  padding:0 20px;
   background-color: aliceblue;
-  position: absolute;
+  position: fixed;
   z-index: 10;
   height:65vh;
-  width:100%;
+  width:40%;
   overflow: hidden;
-  transition: all 400ms;
-  border:2px solid rgb(193, 230, 255)
+  transition: all 300ms;
+  border:2px solid rgb(193, 230, 255);
 }
-
+.detailsInner{
+  margin:50px;
+}
 .detailsHidden{
-  margin:400px 50%;
+  margin:400px 17%;
   height:0vh;
   width:5%;
   border:0px;
+  padding:0;
+}
+.detailsClose{
+  margin:5px;
+  cursor: pointer;
+  color: rgb(193, 230, 255);
+  text-align: right;
 }
